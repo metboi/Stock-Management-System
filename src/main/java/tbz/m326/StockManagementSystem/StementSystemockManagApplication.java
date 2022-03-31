@@ -1,0 +1,14 @@
+package tbz.m326.StockManagementSystem;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StementSystemockManagApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StementSystemockManagApplication.class, args);
+		System.out.println("");
+	}
+
+}
