@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StementSystemockManagApplication {
+public class StockManagementSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StementSystemockManagApplication.class, args);
+		SpringApplication.run(StockManagementSystemApplication.class, args);
 		System.out.println("");
 	}
 
