@@ -1,27 +1,24 @@
 package tbz.m326.StockManagementSystem.Data;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import lombok.Getter;
+import lombok.With;
 import yahoofinance.YahooFinance;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
+@Getter
+@With
 @AllArgsConstructor
-@Service
 public class ProvideStockData {
-    public StockWrapper findStock (final String ticker){
-        try{
-            return new StockWrapper (YahooFinance.get(ticker)) ;
-        }
-        catch (Exception ex){
-            System.err.println(ex);
-        }
-        return null;
-    }
 
-    public BigDecimal findPrice(final StockWrapper stock) throws IOException {
-        return stock.getStock().getQuote(true).getPrice();
+    public String getData(String Stock) throws IOException {
+        yahoofinance.Stock stock = YahooFinance.get(Stock);
+        BigDecimal price = stock.getQuote().getPrice();
+        return (Stock +" "+ price + " USD");
     }
 
 }
+
+
