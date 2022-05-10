@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import tbz.m326.StockManagementSystem.Controller.ValidateCC;
-import tbz.m326.StockManagementSystem.Data.ProvideStockData;
+import tbz.m326.StockManagementSystem.Data.Stock;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -17,11 +17,12 @@ public class StockManagementSystemApplication {
 
 	public static void main(String[] args) throws IOException {
 		while (true) {
-			ProvideStockData stockData = new ProvideStockData();
+			Stock stockData = new Stock();
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Exit");
+			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n  7.) Exit");
 			int option = sc.nextInt();
 			switch (option) {
+				//Get Stock Data
 				case 1:
 					System.out.println("Which Stock do you want to see?");
 					sc.nextLine();
@@ -29,26 +30,35 @@ public class StockManagementSystemApplication {
 					String data = stockData.getData(stock);
 					System.out.println(data);
 					break;
+				//Buy Stocks
 				case 2:
 					System.out.println("Which Stock would you like to buy?");
 					sc.nextLine();
 					String stockToBuy = sc.nextLine();
 					String stockToBuyData = stockData.getData(stockToBuy);
 					break;
+				//Sell Stocks
 				case 3:
 					System.out.println("Test 3");
 					break;
+				//Show Portfolio
 				case 4:
 					System.out.println("Test 4");
 					break;
+				//Add Funds
 				case 5:
+					System.out.println("Test 5");
+					break;
+				//Withdraw Funds
+				case 6:
+					System.out.println("Test 6");
+					break;
+				//Exit
+				case 7:
 					System.exit(0);
 					break;
 			}
 		}
-
-
-		//validateCC.validateCreditCardNumber("000000000000000");
 	}
 
 }

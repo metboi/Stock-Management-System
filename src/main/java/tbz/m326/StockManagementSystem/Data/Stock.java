@@ -11,12 +11,24 @@ import java.math.BigDecimal;
 @Getter
 @With
 @AllArgsConstructor
-public class ProvideStockData {
+public class Stock {
 
     public String getData(String Stock) throws IOException {
         yahoofinance.Stock stock = YahooFinance.get(Stock);
         BigDecimal price = stock.getQuote().getPrice();
-        return (Stock +" "+ price + " USD");
+        return (price + " USD");
+    }
+
+    public String buyStock(String Stock) throws IOException {
+        this.getData(Stock);
+        //TODO: Implement Database buy Logic
+        return "";
+    }
+
+    public String sellStock(String Stock) throws IOException {
+        this.getData(Stock);
+        //TODO: Implement Database sell Logic
+        return "";
     }
 
 }

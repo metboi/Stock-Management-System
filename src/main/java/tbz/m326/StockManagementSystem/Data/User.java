@@ -43,4 +43,9 @@ public class User {
 
     }
 
+    public String showPortfolio() {
+        //TODO: Read Stocks owned by users and return them.
+        return "";
+    }
+
 }

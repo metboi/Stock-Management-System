@@ -26,6 +26,5 @@ public class ValidateCC {
             System.out.println(str + " is an invalid credit card number");
         }
     }
-
 }
 
