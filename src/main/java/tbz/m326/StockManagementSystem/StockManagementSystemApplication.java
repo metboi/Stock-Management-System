@@ -18,8 +18,9 @@ public class StockManagementSystemApplication {
 	public static void main(String[] args) throws IOException {
 		while (true) {
 			Stock stockData = new Stock();
+			ValidateCC ccValidator = new ValidateCC();
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n  7.) Exit");
+			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n 7.) Exit");
 			int option = sc.nextInt();
 			switch (option) {
 				//Get Stock Data
@@ -47,7 +48,15 @@ public class StockManagementSystemApplication {
 					break;
 				//Add Funds
 				case 5:
-					System.out.println("Test 5");
+					System.out.println("Input your Credit Card number");
+					sc.nextLine();
+					String ccNumber = sc.nextLine();
+					if (ccValidator.validateCreditCardNumber(ccNumber) == true) {
+						System.out.println(ccNumber + " is a valid Credit Card Number");
+						//Add funds to the account
+					} else {
+						System.out.println(ccNumber + " is not a valid Credit Card Number");
+					}
 					break;
 				//Withdraw Funds
 				case 6:

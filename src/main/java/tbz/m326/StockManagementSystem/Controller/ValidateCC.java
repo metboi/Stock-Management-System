@@ -2,7 +2,7 @@ package tbz.m326.StockManagementSystem.Controller;
 
 public class ValidateCC {
 
-    public static void validateCreditCardNumber(String str) {
+    public static boolean validateCreditCardNumber(String str) {
 
         int[] ints = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
@@ -21,9 +21,9 @@ public class ValidateCC {
             sum += ints[i];
         }
         if (sum % 10 == 0) {
-            System.out.println(str + " is a valid credit card number");
+            return true;
         } else {
-            System.out.println(str + " is an invalid credit card number");
+            return false;
         }
     }
 }
