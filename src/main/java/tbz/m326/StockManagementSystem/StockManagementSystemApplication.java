@@ -2,9 +2,9 @@ package tbz.m326.StockManagementSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import tbz.m326.StockManagementSystem.Controller.ValidateCC;
 import tbz.m326.StockManagementSystem.Data.Stock;
+import tbz.m326.StockManagementSystem.Data.User;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,6 +20,7 @@ public class StockManagementSystemApplication {
 			Stock stockData = new Stock();
 			ValidateCC ccValidator = new ValidateCC();
 			Scanner sc = new Scanner(System.in);
+			User user = new User();
 			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n 7.) Exit");
 			int option = sc.nextInt();
 			switch (option) {
@@ -44,7 +45,7 @@ public class StockManagementSystemApplication {
 					break;
 				//Show Portfolio
 				case 4:
-					System.out.println("Test 4");
+					user.showPortfolio();
 					break;
 				//Add Funds
 				case 5:

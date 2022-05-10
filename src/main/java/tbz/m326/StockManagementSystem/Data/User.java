@@ -44,7 +44,8 @@ public class User {
     }
 
     public String showPortfolio() {
-        //TODO: Read Stocks owned by users and return them.
+        //TODO: Read Stocks owned by users from Database and return them.
+        System.out.println("Test");
         return "";
     }
 
