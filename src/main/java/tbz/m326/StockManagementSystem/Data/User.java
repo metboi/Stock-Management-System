@@ -9,6 +9,7 @@ public class User {
     private String email;
     private String password;
     private String creditcard;
+
     public String getUsername() {
         return username;
     }
