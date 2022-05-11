@@ -15,3 +15,17 @@ public class Sql {
     }
 }
 
+//User Portfolio
+//select `sms`.`user`.`username` AS `username`, `s`.`name` AS `name`
+//from (`sms`.`user` join `sms`.`stocks` `s` on ((`sms`.`user`.`user_id` = `s`.`user_id`)));
+//--------------------------------------------------------------------------------------------
+//User
+//
+//
+//
+//
+//
+//
+//
+//
+//
