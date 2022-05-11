@@ -2,11 +2,13 @@ package tbz.m326.StockManagementSystem.Data;
 
 public class User {
 
+    private int user_id;
+
     private String username;
+
     private String email;
     private String password;
     private String creditcard;
-
     public String getUsername() {
         return username;
     }
@@ -47,6 +49,17 @@ public class User {
         //TODO: Read Stocks owned by users from Database and return them.
         System.out.println("Test");
         return "";
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", creditcard='" + creditcard + '\'' +
+                '}';
     }
 
 }
