@@ -8,6 +8,10 @@ import yahoofinance.quotes.stock.StockQuote;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 @Getter
 @With
@@ -33,6 +37,37 @@ public class Stock {
         return "";
     }
 
+    public void showPortfolio(String username){
+        boolean checkLog = true;
+        PreparedStatement ps;
+        ResultSet rs;
+        Sql sql = new Sql();
+        String query = "select * from user where username = ?";
+        String query2 = "select stockName, buyPrice, amount from stocks where user_id = ?";
+        while (checkLog){
+            try {
+                ps = sql.sqlCon().prepareStatement(query);
+                ps.setString(1, username);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    int user_id = rs.getInt("user_id");
+                    ps = sql.sqlCon().prepareStatement(query2);
+                    ps.setInt(1, user_id);
+                    rs = ps.executeQuery();
+                    while(rs.next())
+                    {
+                        String stockName = rs.getString("stockName");
+                        float buyPrice = rs.getFloat("buyPrice");
+                        int amount = rs.getInt("amount");
+                        System.out.println("Stock Name: " + stockName + "| Buy Price: " + buyPrice + "| Amount: " + amount);
+                        checkLog = false;
+                    }
+                }
+            } catch (SQLException ex) {
+                System.err.println(ex);
+            }
+        }
+    }
 }
 
 

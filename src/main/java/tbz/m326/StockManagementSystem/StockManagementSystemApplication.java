@@ -72,7 +72,11 @@ public class StockManagementSystemApplication {
 					break;
 				//Show Portfolio
 				case 4:
-					user.showPortfolio();
+					System.out.println("Input Username");
+					sc.nextLine();
+					String username = sc.nextLine();
+					Stock stocks = new Stock();
+					stocks.showPortfolio(username);
 					break;
 				//Add Funds
 				case 5:
@@ -82,10 +86,10 @@ public class StockManagementSystemApplication {
 					if (ccValidator.validateCreditCardNumber(ccNumber) == true) {
 						System.out.println(ccNumber + " is a valid Credit Card Number");
 						System.out.println("Inpt your username");
-						String username = sc.nextLine();
+						String username3 = sc.nextLine();
 						System.out.println("How much money do you want to add to the Account?");
 						float amount = sc.nextFloat();
-						funds.addFunds(amount, username);
+						funds.addFunds(amount, username3);
 					} else {
 						System.out.println(ccNumber + " is not a valid Credit Card Number");
 					}
@@ -98,10 +102,10 @@ public class StockManagementSystemApplication {
 					if (ccValidator.validateCreditCardNumber(ccN) == true) {
 						System.out.println(ccN + " is a valid Credit Card Number");
 						System.out.println("Inpt your username");
-						String username = sc.nextLine();
+						String username2 = sc.nextLine();
 						System.out.println("How much money do you want to withdraw from the Account?");
 						float amount = sc.nextFloat();
-						funds.removeFunds(amount, username);
+						funds.removeFunds(amount, username2);
 					} else {
 						System.out.println(ccN + " is not a valid Credit Card Number");
 					}
