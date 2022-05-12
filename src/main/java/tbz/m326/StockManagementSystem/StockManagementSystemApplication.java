@@ -2,6 +2,7 @@ package tbz.m326.StockManagementSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tbz.m326.StockManagementSystem.Controller.Funds;
 import tbz.m326.StockManagementSystem.Controller.LogIn;
 import tbz.m326.StockManagementSystem.Controller.SignUp;
 import tbz.m326.StockManagementSystem.Controller.ValidateCC;
@@ -46,6 +47,7 @@ public class StockManagementSystemApplication {
 			Stock stockData = new Stock();
 			ValidateCC ccValidator = new ValidateCC();
 			User user = new User();
+			Funds funds = new Funds();
 			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n 7.) Exit");
 			int option = sc.nextInt();
 			switch (option) {
@@ -79,7 +81,11 @@ public class StockManagementSystemApplication {
 					String ccNumber = sc.nextLine();
 					if (ccValidator.validateCreditCardNumber(ccNumber) == true) {
 						System.out.println(ccNumber + " is a valid Credit Card Number");
-						//Add funds to the account
+						System.out.println("Inpt your username");
+						String username = sc.nextLine();
+						System.out.println("How much money do you want to add to the Account?");
+						float amount = sc.nextFloat();
+						funds.addFunds(amount, username);
 					} else {
 						System.out.println(ccNumber + " is not a valid Credit Card Number");
 					}

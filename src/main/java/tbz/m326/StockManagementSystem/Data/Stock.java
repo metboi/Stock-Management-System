@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.With;
 import yahoofinance.YahooFinance;
+import yahoofinance.quotes.stock.StockQuote;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -15,7 +16,8 @@ public class Stock {
 
     public String getData(String Stock) throws IOException {
         yahoofinance.Stock stock = YahooFinance.get(Stock);
-        BigDecimal price = stock.getQuote().getPrice();
+        StockQuote quote = stock.getQuote();
+        BigDecimal price = quote.getPrice();
         return (price + " USD");
     }
 
