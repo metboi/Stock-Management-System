@@ -92,7 +92,19 @@ public class StockManagementSystemApplication {
 					break;
 				//Withdraw Funds
 				case 6:
-					System.out.println("Test 6");
+					System.out.println("Input your Credit Card number");
+					sc.nextLine();
+					String ccN = sc.nextLine();
+					if (ccValidator.validateCreditCardNumber(ccN) == true) {
+						System.out.println(ccN + " is a valid Credit Card Number");
+						System.out.println("Inpt your username");
+						String username = sc.nextLine();
+						System.out.println("How much money do you want to withdraw from the Account?");
+						float amount = sc.nextFloat();
+						funds.removeFunds(amount, username);
+					} else {
+						System.out.println(ccN + " is not a valid Credit Card Number");
+					}
 					break;
 				//Exit
 				case 7:
