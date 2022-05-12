@@ -25,3 +25,14 @@ INSERT INTO sms.user(username, email, creditcard, password) VALUE ('admin', 'adm
 INSERT INTO sms.stocks(user_id, stockName, buyPrice, amount) VALUE (1, 'TSLA', 120.45, 30);
 INSERT INTO sms.stocks(user_id, stockName, buyPrice, amount) VALUE (1, 'AAPl', 10.85, 100);
 INSERT INTO sms.stocks(user_id, stockName, buyPrice, amount) VALUE (1, 'NIKE', 200, 235);
+
+/*
+Insert User query
+INSERT INTO sms.user(username, email, creditcard, password) VALUE ('admin', 'admin@sms.com', 123456, 'admin123');
+----------------------------------------------------------------------------------------------------------------------------------------
+Select user query
+
+
+
+
+*/
