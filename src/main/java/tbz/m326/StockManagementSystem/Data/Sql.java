@@ -12,7 +12,17 @@ public class Sql {
     }
 
 
-    public void addUser(String username, String email, String cc, String password){
+    public void addUser(String username, String email, String cc, String password) throws SQLException{
+        PreparedStatement ps;
+        String query = "INSERT INTO sms.user(username, email, creditcard, password) VALUE (?, ?, ?, ?)";
+        ps = sqlCon().prepareStatement(query);
+        ps.setString(1, username);
+        ps.setString(2, email);
+        ps.setString(3, cc);
+        ps.setString(4, password);
+        ps.execute();
+
+        System.out.println("Success!");
 
     }
 }

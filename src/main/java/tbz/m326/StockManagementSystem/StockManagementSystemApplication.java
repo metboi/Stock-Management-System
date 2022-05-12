@@ -9,6 +9,7 @@ import tbz.m326.StockManagementSystem.Data.Stock;
 import tbz.m326.StockManagementSystem.Data.User;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -17,7 +18,7 @@ public class StockManagementSystemApplication {
 
 	@Autowired
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, SQLException {
 		LogIn logIn = new LogIn();
 		SignUp signUp = new SignUp();
 		Scanner sc = new Scanner(System.in);

@@ -4,7 +4,7 @@ public class ValidateCC {
 
     public static boolean validateCreditCardNumber(String str) {
 
-        if (str.length() == 15){
+        if (str.length() == 16){
             int[] ints = new int[str.length()];
             for (int i = 0; i < str.length(); i++) {
                 ints[i] = Integer.parseInt(str.substring(i, i + 1));
