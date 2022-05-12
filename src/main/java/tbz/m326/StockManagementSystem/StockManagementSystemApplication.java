@@ -2,6 +2,8 @@ package tbz.m326.StockManagementSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tbz.m326.StockManagementSystem.Controller.LogIn;
+import tbz.m326.StockManagementSystem.Controller.SignUp;
 import tbz.m326.StockManagementSystem.Controller.ValidateCC;
 import tbz.m326.StockManagementSystem.Data.Stock;
 import tbz.m326.StockManagementSystem.Data.User;
@@ -16,10 +18,32 @@ public class StockManagementSystemApplication {
 	@Autowired
 
 	public static void main(String[] args) throws IOException {
+		LogIn logIn = new LogIn();
+		SignUp signUp = new SignUp();
+		Scanner sc = new Scanner(System.in);
+		boolean auth = true;
+
+		while (auth){
+			System.out.println("1. Log In | 2. Sign Up");
+			int firstMove = sc.nextInt();
+			switch (firstMove){
+				case 1:
+					logIn.checkLogIn();
+					auth = false;
+					break;
+				case 2:
+					signUp.makeSignUp();
+					auth = false;
+					break;
+				default:
+					System.out.println("Option not available. Please try again.");
+					break;
+			}
+		}
+
 		while (true) {
 			Stock stockData = new Stock();
 			ValidateCC ccValidator = new ValidateCC();
-			Scanner sc = new Scanner(System.in);
 			User user = new User();
 			System.out.println("Options: \n 1.) Get Stock Data \n 2.) Buy Stock \n 3.) Sell Stock \n 4.) Show Portfolio \n 5.) Add Funds \n 6.) Withdraw Funds \n 7.) Exit");
 			int option = sc.nextInt();
