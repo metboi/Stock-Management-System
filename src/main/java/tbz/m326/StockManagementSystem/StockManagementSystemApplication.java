@@ -2,10 +2,7 @@ package tbz.m326.StockManagementSystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import tbz.m326.StockManagementSystem.Controller.Funds;
-import tbz.m326.StockManagementSystem.Controller.LogIn;
-import tbz.m326.StockManagementSystem.Controller.SignUp;
-import tbz.m326.StockManagementSystem.Controller.ValidateCC;
+import tbz.m326.StockManagementSystem.Controller.*;
 import tbz.m326.StockManagementSystem.Data.Stock;
 import tbz.m326.StockManagementSystem.Data.User;
 
@@ -62,9 +59,9 @@ public class StockManagementSystemApplication {
 				//Buy Stocks
 				case 2:
 					System.out.println("Which Stock would you like to buy?");
-					sc.nextLine();
-					String stockToBuy = sc.nextLine();
-					String stockToBuyData = stockData.getData(stockToBuy);
+					String stocktobuy = sc.nextLine();
+					BuyStock buyStock= new BuyStock();
+					buyStock.buyStock(stocktobuy);
 					break;
 				//Sell Stocks
 				case 3:

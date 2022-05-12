@@ -1,6 +1,7 @@
 package tbz.m326.StockManagementSystem.Controller;
 
 import tbz.m326.StockManagementSystem.Data.Sql;
+import tbz.m326.StockManagementSystem.Data.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,13 +11,14 @@ import java.util.Scanner;
 public class LogIn {
 
     public SignUp signUp = new SignUp();
+    public User user = new User();
 
-    public void checkLogIn(){
+    public void checkLogIn() throws SQLException{
         boolean checkLog = true;
+        Sql sql = new Sql();
         while (checkLog){
 
             Scanner sc = new Scanner(System.in);
-            Sql sql = new Sql();
             System.out.println("Enter your username:");
             String username = sc.nextLine();
             System.out.println("Enter your password:");
@@ -36,6 +38,11 @@ public class LogIn {
                 if(rs.next())
                 {
                     System.out.println("LogIn was successful");
+                    user.setUser_id(rs.getInt("user_id"));
+                    user.setUsername(rs.getString("username"));
+                    user.setCreditcard(rs.getString("creditcard"));
+                    user.setEmail(rs.getString("email"));
+                    user.setMoney(rs.getFloat("money"));
                     checkLog = false;
                 }
                 else{
@@ -53,5 +60,7 @@ public class LogIn {
                 System.err.println(ex);
             }
         }
+
+        sql.sqlCon().close();
     }
 }

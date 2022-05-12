@@ -2,6 +2,8 @@ package tbz.m326.StockManagementSystem.Data;
 
 public class User {
 
+
+
     private int user_id;
 
     private String username;
@@ -9,6 +11,24 @@ public class User {
     private String email;
     private String password;
     private String creditcard;
+
+    private float money;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public float getMoney() {
+        return money;
+    }
+
+    public void setMoney(float money) {
+        this.money = money;
+    }
 
     public String getUsername() {
         return username;
@@ -52,15 +72,6 @@ public class User {
         return "";
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "user_id=" + user_id +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", creditcard='" + creditcard + '\'' +
-                '}';
-    }
+
 
 }

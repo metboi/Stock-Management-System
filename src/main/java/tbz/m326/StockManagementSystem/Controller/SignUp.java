@@ -74,6 +74,6 @@ public class SignUp {
         }
 
         sql.addUser(username, email, cc, password);
-
+        sql.sqlCon().close();
     }
 }

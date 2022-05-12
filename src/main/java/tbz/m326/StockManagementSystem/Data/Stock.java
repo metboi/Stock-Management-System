@@ -21,11 +21,15 @@ public class Stock {
         return (price + " USD");
     }
 
-    public String buyStock(String Stock) throws IOException {
-        this.getData(Stock);
-        //TODO: Implement Database buy Logic
-        return "";
+    public float getPriceOnly (String Stock) throws IOException{
+        yahoofinance.Stock stock = YahooFinance.get(Stock);
+        StockQuote quote = stock.getQuote();
+        BigDecimal price = quote.getPrice();
+        float fPrice = price.floatValue();
+        return fPrice;
+
     }
+
 
     public String sellStock(String Stock) throws IOException {
         this.getData(Stock);
