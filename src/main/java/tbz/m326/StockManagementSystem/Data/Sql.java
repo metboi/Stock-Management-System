@@ -10,5 +10,10 @@ public class Sql {
         Statement stmt=con.createStatement();
         return con;
     }
+
+
+    public void addUser(String username, String email, String cc, String password){
+
+    }
 }
 
